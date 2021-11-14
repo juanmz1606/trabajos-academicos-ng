@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GeneralData } from 'src/app/config/general-data';
 import { ModeloCredencialesUsuario } from 'src/app/models/credenciales-usuario.model';
 import {MD5} from 'crypto-js';
+import { SeguridadService } from 'src/app/services/compartido/seguridad.service';
 
 declare const OpenGeneralMessageModal: any;
 
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
 
   constructor(
-    private fb: FormBuilder 
+    private fb: FormBuilder,
+    private servicioSeguridad: SeguridadService
   ) { }
 
   ngOnInit(): void {
@@ -25,8 +27,8 @@ export class LoginComponent implements OnInit {
 
   CreateForm(){
     this.form = this.fb.group({
-      usuario: ["", [Validators.required, Validators.email, Validators.minLength(GeneralData.EMAIL_MIN_LENGHT)]],
-      contrasena: ["", [Validators.required, Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT)]]
+      usuario: ["alejandra.1701914799@ucaldas.edu.co", [Validators.required, Validators.email, Validators.minLength(GeneralData.EMAIL_MIN_LENGHT)]],
+      contrasena: ["i57WxSnMkr", [Validators.required, Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT)]]
     });
   }
 
@@ -38,6 +40,15 @@ export class LoginComponent implements OnInit {
       let modelo = new ModeloCredencialesUsuario();
       modelo.usuario = this.GetForm['usuario'].value;
       modelo.contrasena = MD5(this.GetForm['contrasena'].value).toString();
+      this.servicioSeguridad.Login(modelo).subscribe({
+        next: (data: any) => {
+          console.log(data);
+          
+        },
+        error: (error: any) => {
+          OpenGeneralMessageModal(GeneralData.GENERAL_ERROR_MESSAGE)
+        }
+      });
     }
   }
 
