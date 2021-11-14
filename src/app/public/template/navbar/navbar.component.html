@@ -3,28 +3,33 @@
     <a routerLink="home" class="brand-logo">Inicio</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a routerLink="parametros/listar-departamento">Departamento</a></li>
-      <li><a routerLink="parametros/listar-facultad">Facultad</a></li>
-      <li><a routerLink="parametros/listar-modalidad">Modalidad</a></li>
-      <li><a routerLink="parametros/listar-tipo-vinculacion">Tipo de vinculación</a></li>
-      <li><a routerLink="solicitud/listar-solicitud">Solicitud</a></li>
-      <li><a routerLink="solicitud/listar-estado-solicitud">Estado de solicitud</a></li>
-      <li><a routerLink="proponente/listar-proponente">Proponente</a></li>
-      <li><a routerLink="reportes/listar-reportes">Reportes</a></li>
-      <li><a routerLink="seguridad/listar-usuario">Usuarios</a></li>
-      <li><a routerLink="seguridad/login">Login</a></li>
-      <li><a routerLink="seguridad/logout">Logout</a></li>
-      <li><a routerLink="seguridad/cambiar-clave">Cambiar clave</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-departamento">Departamento</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-facultad">Facultad</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-modalidad">Modalidad</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-tipo-vinculacion">Tipo de vinculación</a></li>
+      <li *ngIf="session"><a routerLink="solicitud/listar-solicitud">Solicitud</a></li>
+      <li *ngIf="session"><a routerLink="solicitud/listar-estado-solicitud">Estado de solicitud</a></li>
+      <li *ngIf="session"><a routerLink="proponente/listar-proponente">Proponente</a></li>
+      <li *ngIf="session"><a routerLink="reportes/listar-reportes">Reportes</a></li>
+      <li *ngIf="session"><a routerLink="seguridad/listar-usuario">Usuarios</a></li>
+      <li *ngIf="!session"><a routerLink="seguridad/login">Login</a></li>
+      <li *ngIf="session"><a routerLink="seguridad/logout">Logout</a></li>
+      <li *ngIf="session"><a routerLink="seguridad/cambiar-clave">Cambiar clave</a></li>
     </ul>
   </div>
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
-  <li><a routerLink="">Solicitud</a></li>
-  <li><a routerLink="">Proponent</a></li>
-  <li><a routerLink="">Reportes</a></li>
-  <li><a routerLink="">Usuarios</a></li>
-  <li><a routerLink="">Login</a></li>
-  <li><a routerLink="">Logout</a></li>
-  <li><a routerLink="">Cambiar contraseña</a></li>
+  <li *ngIf="session"><a routerLink="parametros/listar-departamento">Departamento</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-facultad">Facultad</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-modalidad">Modalidad</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-tipo-vinculacion">Tipo de vinculación</a></li>
+      <li *ngIf="session"><a routerLink="solicitud/listar-solicitud">Solicitud</a></li>
+      <li *ngIf="session"><a routerLink="solicitud/listar-estado-solicitud">Estado de solicitud</a></li>
+      <li *ngIf="session"><a routerLink="proponente/listar-proponente">Proponente</a></li>
+      <li *ngIf="session"><a routerLink="reportes/listar-reportes">Reportes</a></li>
+      <li *ngIf="session"><a routerLink="seguridad/listar-usuario">Usuarios</a></li>
+      <li *ngIf="!session"><a routerLink="seguridad/login">Login</a></li>
+      <li *ngIf="session"><a routerLink="seguridad/logout">Logout</a></li>
+      <li *ngIf="session"><a routerLink="seguridad/cambiar-clave">Cambiar clave</a></li>
 </ul>
