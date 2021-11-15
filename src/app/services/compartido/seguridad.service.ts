@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { SessionData } from 'src/app/models/session-data.model';
 import { GeneralData } from '../../config/general-data';
 import { ModeloCredencialesUsuario } from '../../models/credenciales-usuario.model';
 
@@ -10,13 +11,33 @@ import { ModeloCredencialesUsuario } from '../../models/credenciales-usuario.mod
 export class SeguridadService {
 
   url: string = GeneralData.ADMIN_USERS_URL;
+  sessionDataSubject: BehaviorSubject<SessionData> = new BehaviorSubject<SessionData>(new SessionData());
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    this.IsThereActiveSession();
+   }
 
-  Login(modelo: ModeloCredencialesUsuario): Observable<any>{
-    return this.http.post(`${this.url}/identificar-usuario`,{
+  IsThereActiveSession(){
+    let data = localStorage.getItem("session-data");
+    if (data) {
+      let objectData: SessionData = JSON.parse(data);
+      objectData.isLoggedIn = true;
+      this.RefreshSessionData(objectData);
+    }
+  }
+
+  RefreshSessionData(data: SessionData){
+    this.sessionDataSubject.next(data);
+  }
+
+  GetSessionStatus(){
+    return this.sessionDataSubject.asObservable();
+  }
+
+  Login(modelo: ModeloCredencialesUsuario): Observable<SessionData>{
+    return this.http.post<SessionData>(`${this.url}/identificar-usuario`,{
       usuario: modelo.usuario,
       clave: modelo.contrasena
     });

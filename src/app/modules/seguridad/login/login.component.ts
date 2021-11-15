@@ -4,6 +4,9 @@ import { GeneralData } from 'src/app/config/general-data';
 import { ModeloCredencialesUsuario } from 'src/app/models/credenciales-usuario.model';
 import {MD5} from 'crypto-js';
 import { SeguridadService } from 'src/app/services/compartido/seguridad.service';
+import { LocalStorageService } from 'src/app/services/compartido/local-storage.service';
+import { SessionData } from 'src/app/models/session-data.model';
+import { Router } from '@angular/router';
 
 declare const OpenGeneralMessageModal: any;
 
@@ -18,7 +21,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicioSeguridad: SeguridadService
+    private servicioSeguridad: SeguridadService,
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -36,14 +41,16 @@ export class LoginComponent implements OnInit {
     if(this.form.invalid){
       OpenGeneralMessageModal(GeneralData.INVALID_FORM_MESSAGE)
     }else{
-      OpenGeneralMessageModal(GeneralData.VALID_FORM_MESSAGE)
       let modelo = new ModeloCredencialesUsuario();
       modelo.usuario = this.GetForm['usuario'].value;
       modelo.contrasena = MD5(this.GetForm['contrasena'].value).toString();
       this.servicioSeguridad.Login(modelo).subscribe({
-        next: (data: any) => {
+        next: (data: SessionData) => {
           console.log(data);
-          
+          this.localStorageService.saveSessionData(data);
+          data.isLoggedIn = true;
+          this.servicioSeguridad.RefreshSessionData(data);
+          this.router.navigate(["/home"])
         },
         error: (error: any) => {
           OpenGeneralMessageModal(GeneralData.GENERAL_ERROR_MESSAGE)
