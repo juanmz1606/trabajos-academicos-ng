@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FacultadModel } from 'src/app/models/parameters/facultad.model';
+import { FacultadService } from 'src/app/services/parameters/facultad.service';
 
 @Component({
   selector: 'app-listar-facultad',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarFacultadComponent implements OnInit {
 
-  constructor() { }
+  recordList: FacultadModel[] = [];
+
+  constructor(
+    private service: FacultadService
+  ) { }
 
   ngOnInit(): void {
+    this.GetRecordList();
+  }
+
+  GetRecordList(){
+    this.service.GetRecordList().subscribe({
+      next: (data: FacultadModel[]) => {
+        this.recordList = data;
+      }
+    })
   }
 
 }
