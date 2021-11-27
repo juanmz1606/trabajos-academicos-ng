@@ -38,6 +38,8 @@ import { CrearResultadoEvaluacionComponent } from './resultado-evaluacion/crear-
 import { EditarResultadoEvaluacionComponent } from './resultado-evaluacion/editar-resultado-evaluacion/editar-resultado-evaluacion.component';
 import { EliminarResultadoEvaluacionComponent } from './resultado-evaluacion/eliminar-resultado-evaluacion/eliminar-resultado-evaluacion.component';
 import { ListarResultadoEvaluacionComponent } from './resultado-evaluacion/listar-resultado-evaluacion/listar-resultado-evaluacion.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -81,7 +83,10 @@ import { ListarResultadoEvaluacionComponent } from './resultado-evaluacion/lista
   ],
   imports: [
     CommonModule,
-    ParametrosRoutingModule
+    ParametrosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class ParametrosModule { }

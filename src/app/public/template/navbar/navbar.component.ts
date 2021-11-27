@@ -11,6 +11,7 @@ import { SeguridadService } from 'src/app/services/compartido/seguridad.service'
 export class NavbarComponent implements OnInit {
 
   session: boolean = false;
+  admin: boolean = false;
 
   subscription: Subscription = new Subscription();
 

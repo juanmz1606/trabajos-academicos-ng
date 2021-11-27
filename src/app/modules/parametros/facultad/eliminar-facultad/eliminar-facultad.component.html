@@ -1,1 +1,32 @@
-<p>eliminar-facultad works!</p>
+<div class="row">
+        <input type="hidden" formControlName="id">
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="" class="black-text">¿Está seguro de querer eliminar el registro con la siguiente información?:</label>
+                <br>
+                <ul>
+                    <li>
+                        <strong>Id: {{id}}</strong>
+                    </li>
+                    <li>
+                        <strong>Código: {{codigo}}</strong>
+                    </li>
+                    <li>
+                        <strong>Nombre: {{nombre}}</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/parametros/listar-facultad" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="RemoveRecord()" class="btn btn-success">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+</div>
