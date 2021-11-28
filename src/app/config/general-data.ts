@@ -12,5 +12,5 @@ export namespace GeneralData{
     export const ERROR_SAVED_MESSAGE = "Error al almacenar registro";
     export const ERROR_EDITED_MESSAGE = "Error al eliminar registro";
     export const ERROR_REMOVED_MESSAGE = "Error al eliminar registro";
-    export const RECORDS_BY_PAGE = 3;
+    export const RECORDS_BY_PAGE = 5;
 }

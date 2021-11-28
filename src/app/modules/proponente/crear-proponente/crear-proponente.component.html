@@ -1,1 +1,67 @@
-<p>crear-proponente works!</p>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <div class="row">
+            <div class="input-field col s3">
+                <input formControlName="primerNombre" id="primerNombre" type="text">
+                <label for="primerNombre">Primer Nombre</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="otrosNombres" id="otrosNombres" type="text">
+                <label for="otrosNombres">Otros Nombres</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="primerApellido" id="primerApellido" type="text">
+                <label for="primerApellido">Primer Apellido</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="segundoApellido" id="segundoApellido" type="text">
+                <label for="segundoApellido">Segundo Apellido</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <input formControlName="documento" id="documento" type="text">
+                <label for="documento">Documento</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="fechaNacimiento" id="fechaNacimiento" type="text">
+                <label for="fechaNacimiento">Fecha Nacimiento</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="email" id="email" type="text">
+                <label for="email">E-mail</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="celular" id="celular" type="text">
+                <label for="celular">Celular</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <select id="selTipoVinculacion">
+                    <option *ngFor="let tV of tipoVinculacionList" value="{{tV.id}}">{{tV.nombre}}</option>
+                </select>
+                <label>Tipo de Vinculación</label>
+            </div>
+            <div class="input-field col s6">
+                <select multiple id="selDepartamentos">
+                    <option *ngFor="let d of departamentosList" value="{{d.id}}">{{d.nombre}}</option>
+                </select>
+                <label>Departamentos</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/proponente/listar-proponente" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="SaveRecord()" class="btn btn-success">
+                    Guardar
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

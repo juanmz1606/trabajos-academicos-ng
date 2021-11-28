@@ -1,1 +1,103 @@
-<p>listar-proponente works!</p>
+<br>
+
+<table class="table responsive-table">
+    <thead>
+        <th>
+            Id
+        </th>
+        <th>
+            Primer Nombre
+        </th>
+        <th>
+            Otros Nombres
+        </th>
+        <th>
+            Primer Apellido
+        </th>
+        <th>
+            Segundo Apellido
+        </th>
+        <th>
+            Documento
+        </th>
+        <th>
+            Fecha Nacimiento
+        </th>
+        <th>
+            E-mail
+        </th>
+        <th>
+            Celular
+        </th>
+        <th>
+            Fotografía
+        </th>
+        <th>
+            Tipo Vinculación
+        </th>
+        <th>
+            Departamentos
+        </th>
+        <th>
+            Acciones
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: pageSize,
+                                                      currentPage: p,
+                                                      totalItems: total }">
+            <td>
+                {{r.id}}
+            </td>
+            <td>
+                {{r.primerNombre}}
+            </td>
+            <td>
+                {{r.otrosNombres}}
+            </td>
+            <td>
+                {{r.primerApellido}}
+            </td>
+            <td>
+                {{r.segundoApellido}}
+            </td>
+            <td>
+                {{r.documento}}
+            </td>
+            <td>
+                {{r.fechaNacimiento}}
+            </td>
+            <td>
+                {{r.email}}
+            </td>
+            <td>
+                {{r.celular}}
+            </td>
+            <td>
+                {{r.fotografia}}
+            </td>
+            <td>
+                {{r.tipoVinculacion?.nombre}}
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let d of r.departamentos">{{d.nombre}}</li>
+                </ul>
+            </td>
+            <td>
+                <a routerLink="/proponente/editar-proponente/{{r.id}}" class="btn btn-warning orange">Editar</a>
+                &nbsp;<a routerLink="/proponente/eliminar-proponente/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+                nextLabel="Siguiente"></pagination-controls>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a routerLink="/proponente/crear-proponente" class="btn btn-success">Nuevo Registro</a>
+<p></p>

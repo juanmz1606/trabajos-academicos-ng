@@ -7,6 +7,8 @@ import { EditarProponenteComponent } from './editar-proponente/editar-proponente
 import { EliminarProponenteComponent } from './eliminar-proponente/eliminar-proponente.component';
 import { ListarProponenteComponent } from './listar-proponente/listar-proponente.component';
 import { FotografiaProponenteComponent } from './fotografia-proponente/fotografia-proponente.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -19,7 +21,10 @@ import { FotografiaProponenteComponent } from './fotografia-proponente/fotografi
   ],
   imports: [
     CommonModule,
-    ProponenteRoutingModule
+    ProponenteRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class ProponenteModule { }

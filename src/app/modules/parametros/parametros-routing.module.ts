@@ -59,11 +59,11 @@ const routes: Routes = [
     component: CrearDepartamentoComponent
   },
   {
-    path: "editar-departamento",
+    path: "editar-departamento/:id",
     component: EditarDepartamentoComponent
   },
   {
-    path: "eliminar-departamento",
+    path: "eliminar-departamento/:id",
     component: EliminarDepartamentoComponent
   },
   {
@@ -75,11 +75,11 @@ const routes: Routes = [
     component: CrearModalidadComponent
   },
   {
-    path: "editar-modalidad",
+    path: "editar-modalidad/:id",
     component: EditarModalidadComponent
   },
   {
-    path: "eliminar-modalidad",
+    path: "eliminar-modalidad/:id",
     component: EliminarModalidadComponent
   },
   {
@@ -91,11 +91,11 @@ const routes: Routes = [
     component: CrearTipoVinculacionComponent
   },
   {
-    path: "editar-tipo-vinculacion",
+    path: "editar-tipo-vinculacion/:id",
     component: EditarTipoVinculacionComponent
   },
   {
-    path: "eliminar-tipo-vinculacion",
+    path: "eliminar-tipo-vinculacion/:id",
     component: EliminarTipoVinculacionComponent
   },
   {
@@ -107,11 +107,11 @@ const routes: Routes = [
     component: CrearEstadoSolicitudComponent
   },
   {
-    path: "editar-estado-solicitud",
+    path: "editar-estado-solicitud/:id",
     component: EditarEstadoSolicitudComponent
   },
   {
-    path: "eliminar-estado-solicitud",
+    path: "eliminar-estado-solicitud/:id",
     component: EliminarEstadoSolicitudComponent
   },
   {
@@ -123,11 +123,11 @@ const routes: Routes = [
     component: CrearComiteComponent
   },
   {
-    path: "editar-comite",
+    path: "editar-comite/:id",
     component: EditarComiteComponent
   },
   {
-    path: "eliminar-comite",
+    path: "eliminar-comite/:id",
     component: EliminarComiteComponent
   },
   {
@@ -139,11 +139,11 @@ const routes: Routes = [
     component: CrearLineaInvestigacionComponent
   },
   {
-    path: "editar-linea-investigacion",
+    path: "editar-linea-investigacion/:id",
     component: EditarLineaInvestigacionComponent
   },
   {
-    path: "eliminar-linea-investigacion",
+    path: "eliminar-linea-investigacion/:id",
     component: EliminarLineaInvestigacionComponent
   },
   {
@@ -155,11 +155,11 @@ const routes: Routes = [
     component: CrearJuradoComponent
   },
   {
-    path: "editar-jurado",
+    path: "editar-jurado/:id",
     component: EditarJuradoComponent
   },
   {
-    path: "eliminar-jurado",
+    path: "eliminar-jurado/:id",
     component: EliminarJuradoComponent
   },
   {
@@ -171,11 +171,11 @@ const routes: Routes = [
     component: CrearResultadoEvaluacionComponent
   },
   {
-    path: "editar-resultado-evaluacion",
+    path: "editar-resultado-evaluacion/:id",
     component: EditarResultadoEvaluacionComponent
   },
   {
-    path: "eliminar-resultado-evaluacion",
+    path: "eliminar-resultado-evaluacion/:id",
     component: EliminarResultadoEvaluacionComponent
   },
   {
