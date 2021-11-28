@@ -12,11 +12,11 @@ const routes: Routes = [
     component: CrearProponenteComponent
   },
   {
-    path: "editar-proponente",
+    path: "editar-proponente/:id",
     component: EditarProponenteComponent
   },
   {
-    path: "eliminar-proponente",
+    path: "eliminar-proponente/:id",
     component: EliminarProponenteComponent
   },
   {

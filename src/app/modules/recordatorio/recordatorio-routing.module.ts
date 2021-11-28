@@ -11,11 +11,11 @@ const routes: Routes = [
     component: CrearRecordatorioComponent
   },
   {
-    path: "editar-recordatorio",
+    path: "editar-recordatorio/:id",
     component: EditarRecordatorioComponent
   },
   {
-    path: "eliminar-recordatorio",
+    path: "eliminar-recordatorio/:id",
     component: EliminarRecordatorioComponent
   },
   {

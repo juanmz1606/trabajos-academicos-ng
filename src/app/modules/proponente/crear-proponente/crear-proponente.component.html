@@ -1,5 +1,22 @@
 <div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s12 center-align">
+                <img *ngIf="!uploadedFile" class="default-foto" src="/assets/images/proponentes/default-foto.jpg">
+                <img *ngIf="uploadedFile" class="default-foto" src="{{url}}/archivo/1/{{uploadedFilename}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <input class="btn btn-warning orange" type="file" value="Seleccionar" name="image" (change)="OnchangeInputFile($event)">
+            &nbsp;<button (click)="UploadImage()" class="btn">Cargar Imagen</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
     <form [formGroup]="form" class="col s12">
+        <input type="text" formControlName="fotografia">
         <div class="row">
             <div class="input-field col s3">
                 <input formControlName="primerNombre" id="primerNombre" type="text">

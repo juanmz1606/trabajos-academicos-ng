@@ -29,7 +29,7 @@ export class CrearDepartamentoComponent implements OnInit {
   CreateForm(){
     this.form = this.fb.group({
       nombre: ["", [Validators.required]],
-      id_facultad: ["", [Validators.required]]
+      id_facultad: [0, [Validators.required]]
     });
   }
 

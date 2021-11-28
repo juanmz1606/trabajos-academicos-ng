@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
 import { ProponenteModel } from 'src/app/models/proponente/proponente.model';
+import { UploadedFileModel } from 'src/app/models/proponente/uploaded-file.model';
 import { LocalStorageService } from '../compartido/local-storage.service';
 
 @Injectable({
@@ -85,4 +86,18 @@ export class ProponenteService {
       }
     );
   }
+
+  UploadFile(formData: FormData) {
+    return this.http.post<UploadedFileModel>
+      (`${this.url}/CargarFotografiaProponente`,
+        formData
+        ,
+        {
+          headers: new HttpHeaders({
+            Authorization: `Bearer ${this.token}`
+          })
+        }
+      );
+  }
+
 }

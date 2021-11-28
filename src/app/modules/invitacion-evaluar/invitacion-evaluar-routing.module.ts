@@ -11,11 +11,11 @@ const routes: Routes = [
     component: CrearInvitacionEvaluarComponent
   },
   {
-    path: "editar-invitacion-evaluar",
+    path: "editar-invitacion-evaluar/:id",
     component: EditarInvitacionEvaluarComponent
   },
   {
-    path: "eliminar-invitacion-evaluar",
+    path: "eliminar-invitacion-evaluar/:id",
     component: EliminarInvitacionEvaluarComponent
   },
   {
