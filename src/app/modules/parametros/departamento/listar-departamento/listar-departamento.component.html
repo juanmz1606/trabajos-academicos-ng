@@ -9,7 +9,7 @@
             Nombre
         </th>
         <th>
-            Id facultad
+            Facultad
         </th>
         <th>
             Acciones
@@ -26,7 +26,7 @@
                 {{r.nombre}}
             </td>
             <td>
-                {{r.id_facultad}}
+                {{r.tiene_facultad?.nombre}}
             </td>
             <td>
                 <a routerLink="/parametros/editar-departamento/{{r.id}}" class="btn btn-warning orange">Editar</a>

@@ -1,1 +1,86 @@
-<p>editar-proponente works!</p>
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s12 center-align">
+                <!-- <img *ngIf="!uploadedFile and !image" class="default-foto" src="/assets/images/proponentes/default-foto.jpg"> -->
+                <img *ngIf="!uploadedFile" class="default-foto" src="{{url}}/archivo/1/{{actualImageName}}">
+                <img *ngIf="uploadedFile" class="default-foto" src="{{url}}/archivo/1/{{uploadedFilename}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <input class="btn btn-warning orange" type="file" value="Seleccionar" name="image" (change)="OnchangeInputFile($event)">
+            &nbsp;<button (click)="UploadImage()" class="btn">Cargar Imagen</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <input type="hidden" formControlName="id">
+        <input type="text" formControlName="fotografia">
+        <div class="row">
+            <div class="input-field col s3">
+                <input formControlName="primerNombre" id="primerNombre" type="text">
+                <label for="primerNombre" class="active">Primer Nombre</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="otrosNombres" id="otrosNombres" type="text">
+                <label for="otrosNombres" class="active">Otros Nombres</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="primerApellido" id="primerApellido" type="text">
+                <label for="primerApellido" class="active">Primer Apellido</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="segundoApellido" id="segundoApellido" type="text">
+                <label for="segundoApellido" class="active">Segundo Apellido</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <input formControlName="documento" id="documento" type="text">
+                <label for="documento" class="active">Documento</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="fechaNacimiento" id="fechaNacimiento" type="text">
+                <label for="fechaNacimiento" class="active">Fecha Nacimiento</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="email" id="email" type="text">
+                <label for="email" class="active">E-mail</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="celular" id="celular" type="text">
+                <label for="celular" class="active">Celular</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <select id="selTipoVinculacion">
+                    <option *ngFor="let tV of tipoVinculacionList" value="{{tV.id}}">{{tV.nombre}}</option>
+                </select>
+                <label>Tipo de Vinculación</label>
+            </div>
+            <div class="input-field col s6">
+                <select multiple id="selDepartamentos">
+                    <option *ngFor="let d of departamentosList" value="{{d.id}}">{{d.nombre}}</option>
+                </select>
+                <label>Departamentos</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/proponente/listar-proponente" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="EditeRecord()" class="btn btn-success">
+                    Guardar
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

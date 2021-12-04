@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  var instances = M.Dropdown.init(elems, {
+  });
+});
 
 function initSelectById(id) {
   var elems = document.querySelector('#'+ id);

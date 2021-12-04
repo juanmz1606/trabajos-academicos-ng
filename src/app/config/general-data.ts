@@ -10,7 +10,8 @@ export namespace GeneralData{
     export const EDITED_MESSAGE = "Registro editado";
     export const REMOVED_MESSAGE = "Registro eliminado";
     export const ERROR_SAVED_MESSAGE = "Error al almacenar registro";
-    export const ERROR_EDITED_MESSAGE = "Error al eliminar registro";
+    export const ERROR_EDITED_MESSAGE = "Error al editar registro";
     export const ERROR_REMOVED_MESSAGE = "Error al eliminar registro";
+    export const ERROR_SESSION_MESSAGE = "No se encontro un usuario con esa información";
     export const RECORDS_BY_PAGE = 5;
 }

@@ -40,6 +40,10 @@ import { EliminarResultadoEvaluacionComponent } from './resultado-evaluacion/eli
 import { ListarResultadoEvaluacionComponent } from './resultado-evaluacion/listar-resultado-evaluacion/listar-resultado-evaluacion.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CrearTipoSolicitudComponent } from './tipo-solicitud/crear-tipo-solicitud/crear-tipo-solicitud.component';
+import { EditarTipoSolicitudComponent } from './tipo-solicitud/editar-tipo-solicitud/editar-tipo-solicitud.component';
+import { EliminarTipoSolicitudComponent } from './tipo-solicitud/eliminar-tipo-solicitud/eliminar-tipo-solicitud.component';
+import { ListarTipoSolicitudComponent } from './tipo-solicitud/listar-tipo-solicitud/listar-tipo-solicitud.component';
 
 
 @NgModule({
@@ -79,7 +83,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CrearResultadoEvaluacionComponent,
     EditarResultadoEvaluacionComponent,
     EliminarResultadoEvaluacionComponent,
-    ListarResultadoEvaluacionComponent
+    ListarResultadoEvaluacionComponent,
+    CrearTipoSolicitudComponent,
+    EditarTipoSolicitudComponent,
+    EliminarTipoSolicitudComponent,
+    ListarTipoSolicitudComponent
   ],
   imports: [
     CommonModule,

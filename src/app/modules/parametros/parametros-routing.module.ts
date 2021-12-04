@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { CrearComiteComponent } from './comite/crear-comite/crear-comite.component';
 import { EditarComiteComponent } from './comite/editar-comite/editar-comite.component';
 import { EliminarComiteComponent } from './comite/eliminar-comite/eliminar-comite.component';
@@ -32,6 +33,10 @@ import { CrearResultadoEvaluacionComponent } from './resultado-evaluacion/crear-
 import { EditarResultadoEvaluacionComponent } from './resultado-evaluacion/editar-resultado-evaluacion/editar-resultado-evaluacion.component';
 import { EliminarResultadoEvaluacionComponent } from './resultado-evaluacion/eliminar-resultado-evaluacion/eliminar-resultado-evaluacion.component';
 import { ListarResultadoEvaluacionComponent } from './resultado-evaluacion/listar-resultado-evaluacion/listar-resultado-evaluacion.component';
+import { CrearTipoSolicitudComponent } from './tipo-solicitud/crear-tipo-solicitud/crear-tipo-solicitud.component';
+import { EditarTipoSolicitudComponent } from './tipo-solicitud/editar-tipo-solicitud/editar-tipo-solicitud.component';
+import { EliminarTipoSolicitudComponent } from './tipo-solicitud/eliminar-tipo-solicitud/eliminar-tipo-solicitud.component';
+import { ListarTipoSolicitudComponent } from './tipo-solicitud/listar-tipo-solicitud/listar-tipo-solicitud.component';
 import { CrearTipoVinculacionComponent } from './tipo-vinculacion/crear-tipo-vinculacion/crear-tipo-vinculacion.component';
 import { EditarTipoVinculacionComponent } from './tipo-vinculacion/editar-tipo-vinculacion/editar-tipo-vinculacion.component';
 import { EliminarTipoVinculacionComponent } from './tipo-vinculacion/eliminar-tipo-vinculacion/eliminar-tipo-vinculacion.component';
@@ -40,147 +45,202 @@ import { ListarTipoVinculacionComponent } from './tipo-vinculacion/listar-tipo-v
 const routes: Routes = [
   {
     path: "crear-facultad",
-    component: CrearFacultadComponent
+    component: CrearFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-facultad/:id",
-    component: EditarFacultadComponent
+    component: EditarFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-facultad/:id",
-    component: EliminarFacultadComponent
+    component: EliminarFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-facultad",
-    component: ListarFacultadComponent
+    component: ListarFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-departamento",
-    component: CrearDepartamentoComponent
+    component: CrearDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-departamento/:id",
-    component: EditarDepartamentoComponent
+    component: EditarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-departamento/:id",
-    component: EliminarDepartamentoComponent
+    component: EliminarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-departamento",
-    component: ListarDepartamentoComponent
+    component: ListarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-modalidad",
-    component: CrearModalidadComponent
+    component: CrearModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-modalidad/:id",
-    component: EditarModalidadComponent
+    component: EditarModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-modalidad/:id",
-    component: EliminarModalidadComponent
+    component: EliminarModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-modalidad",
-    component: ListarModalidadComponent
+    component: ListarModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-tipo-vinculacion",
-    component: CrearTipoVinculacionComponent
+    component: CrearTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-tipo-vinculacion/:id",
-    component: EditarTipoVinculacionComponent
+    component: EditarTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-tipo-vinculacion/:id",
-    component: EliminarTipoVinculacionComponent
+    component: EliminarTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-tipo-vinculacion",
-    component: ListarTipoVinculacionComponent
+    component: ListarTipoVinculacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-estado-solicitud",
-    component: CrearEstadoSolicitudComponent
+    component: CrearEstadoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-estado-solicitud/:id",
-    component: EditarEstadoSolicitudComponent
+    component: EditarEstadoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-estado-solicitud/:id",
-    component: EliminarEstadoSolicitudComponent
+    component: EliminarEstadoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-estado-solicitud",
-    component: ListarEstadoSolicitudComponent
+    component: ListarEstadoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-comite",
-    component: CrearComiteComponent
+    component: CrearComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-comite/:id",
-    component: EditarComiteComponent
+    component: EditarComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-comite/:id",
-    component: EliminarComiteComponent
+    component: EliminarComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-comite",
-    component: ListarComiteComponent
+    component: ListarComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-linea-investigacion",
-    component: CrearLineaInvestigacionComponent
+    component: CrearLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-linea-investigacion/:id",
-    component: EditarLineaInvestigacionComponent
+    component: EditarLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-linea-investigacion/:id",
-    component: EliminarLineaInvestigacionComponent
+    component: EliminarLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-linea-investigacion",
-    component: ListarLineaInvestigacionComponent
+    component: ListarLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-jurado",
-    component: CrearJuradoComponent
+    component: CrearJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-jurado/:id",
-    component: EditarJuradoComponent
+    component: EditarJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-jurado/:id",
-    component: EliminarJuradoComponent
+    component: EliminarJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-jurado",
-    component: ListarJuradoComponent
+    component: ListarJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-resultado-evaluacion",
-    component: CrearResultadoEvaluacionComponent
+    component: CrearResultadoEvaluacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-resultado-evaluacion/:id",
-    component: EditarResultadoEvaluacionComponent
+    component: EditarResultadoEvaluacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-resultado-evaluacion/:id",
-    component: EliminarResultadoEvaluacionComponent
+    component: EliminarResultadoEvaluacionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-resultado-evaluacion",
-    component: ListarResultadoEvaluacionComponent
+    component: ListarResultadoEvaluacionComponent,
+    canActivate: [AuthenticatedGuard]
+  },{
+    path: "crear-tipo-solicitud",
+    component: CrearTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "editar-tipo-solicitud/:id",
+    component: EditarTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "eliminar-tipo-solicitud/:id",
+    component: EliminarTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "listar-tipo-solicitud",
+    component: ListarTipoSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
   }
 ];
 

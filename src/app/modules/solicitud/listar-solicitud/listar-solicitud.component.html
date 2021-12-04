@@ -1,1 +1,96 @@
-<p>listar-solicitud works!</p>
+<br>
+
+<table class="table responsive-table">
+    <thead>
+        <th>
+            Id
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Nombre del Trabajo
+        </th>
+        <th>
+            Archivo
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Proponentes
+        </th>
+        <th>
+            Modalidad
+        </th>
+        <th>
+            Tipo Solicitud
+        </th>
+        <th>
+            Estado Solicitud
+        </th>
+        <th>
+            Línea Investigación
+        </th>
+        <th>
+            Comites
+        </th>
+        <th>
+            Fecha Invitaciones a Evaluar
+        </th>
+        <th>
+            Acciones
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{record.id}}
+            </td>
+            <td>
+                {{record.fecha}}
+            </td>
+            <td>
+                {{record.nombreTrabajo}}
+            </td>
+            <td>
+                {{record.archivo}}
+            </td>
+            <td>
+                {{record.descripcion}}
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let p of record.proponentes">{{p.primerNombre}} {{p.otrosNombres}}</li>
+                </ul>
+            </td>
+            <td>
+                {{record.id_modalidad}}
+            </td>
+            <td>
+                {{record.id_tipoSolicitud}}
+            </td>
+            <td>
+                {{record.id_estadoSolicitud}}
+            </td>
+            <td>
+                {{record.id_lineaInvestigacion}}
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let c of record.comites">{{c.nombre}}</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let iE of record.invitacionesEvaluar">{{iE.fechaInvitacion}}</li>
+                </ul>
+            </td>
+            <td>
+                <a routerLink="/solicitud/editar-solicitud/{{record.id}}" class="btn btn-warning orange">Editar</a>
+                &nbsp;<a routerLink="/solicitud/eliminar-solicitud/{{record.id}}" class="btn btn-warning red">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p></p>

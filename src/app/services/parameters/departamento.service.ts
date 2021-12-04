@@ -11,6 +11,7 @@ import { LocalStorageService } from '../compartido/local-storage.service';
 export class DepartamentoService {
   url: string = GeneralData.BUSSINESS_URL;
   token: string = ""
+  filter: string = `?filter={"include":[{"relation":"tiene_facultad"}]}`
   constructor(
     private http: HttpClient,
     private localStorageService: LocalStorageService
@@ -19,7 +20,7 @@ export class DepartamentoService {
    }
 
   GetRecordList(): Observable<DepartamentoModel[]> {
-    return this.http.get<DepartamentoModel[]>(`${this.url}/departamentos`);
+    return this.http.get<DepartamentoModel[]>(`${this.url}/departamentos${this.filter}`);
   }
 
   SearchRecord(id:number): Observable<DepartamentoModel>{

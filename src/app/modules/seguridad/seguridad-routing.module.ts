@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
+import { UnauthenticatedGuard } from 'src/app/guards/unauthenticated.guard';
 import { CambioClaveComponent } from './cambio-clave/cambio-clave.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -12,7 +14,8 @@ import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.
 const routes: Routes = [
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [UnauthenticatedGuard]
   },
   {
     path: "logout",
@@ -20,27 +23,33 @@ const routes: Routes = [
   },
   {
     path: "cambiar-clave",
-    component: CambioClaveComponent
+    component: CambioClaveComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "recuperar-clave",
-    component: RecuperarClaveComponent
+    component: RecuperarClaveComponent,
+    canActivate: [UnauthenticatedGuard]
   },
   {
     path: "crear-usuario",
-    component: CrearUsuarioComponent
+    component: CrearUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-usuario",
-    component: EditarUsuarioComponent
+    component: EditarUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-usuario",
-    component: EliminarUsuarioComponent
+    component: EliminarUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-usuario",
-    component: ListarUsuarioComponent
+    component: ListarUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   }
 ];
 

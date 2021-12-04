@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { CrearInvitacionEvaluarComponent } from './crear-invitacion-evaluar/crear-invitacion-evaluar.component';
 import { EditarInvitacionEvaluarComponent } from './editar-invitacion-evaluar/editar-invitacion-evaluar.component';
 import { EliminarInvitacionEvaluarComponent } from './eliminar-invitacion-evaluar/eliminar-invitacion-evaluar.component';
@@ -8,19 +9,23 @@ import { ListarInvitacionEvaluarComponent } from './listar-invitacion-evaluar/li
 const routes: Routes = [
   {
     path: "crear-invitacion-evaluar",
-    component: CrearInvitacionEvaluarComponent
+    component: CrearInvitacionEvaluarComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-invitacion-evaluar/:id",
-    component: EditarInvitacionEvaluarComponent
+    component: EditarInvitacionEvaluarComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-invitacion-evaluar/:id",
-    component: EliminarInvitacionEvaluarComponent
+    component: EliminarInvitacionEvaluarComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-invitacion-evaluar",
-    component: ListarInvitacionEvaluarComponent
+    component: ListarInvitacionEvaluarComponent,
+    canActivate: [AuthenticatedGuard]
   }
 ];
 

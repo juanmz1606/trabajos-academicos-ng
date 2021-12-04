@@ -46,11 +46,17 @@ export class LoginComponent implements OnInit {
       modelo.contrasena = MD5(this.GetForm['contrasena'].value).toString();
       this.servicioSeguridad.Login(modelo).subscribe({
         next: (data: SessionData) => {
-          console.log(data);
-          this.localStorageService.saveSessionData(data);
-          data.isLoggedIn = true;
-          this.servicioSeguridad.RefreshSessionData(data);
-          this.router.navigate(["/home"])
+          if (data.usuario == null) {
+            this.router.navigate(["/seguridad/login"]);
+            OpenGeneralMessageModal(GeneralData.ERROR_SESSION_MESSAGE);
+          }
+          else{
+            console.log(data);
+            this.localStorageService.saveSessionData(data);
+            data.isLoggedIn = true;
+            this.servicioSeguridad.RefreshSessionData(data);
+            this.router.navigate(["/home"])
+          }
         },
         error: (error: any) => {
           OpenGeneralMessageModal(GeneralData.GENERAL_ERROR_MESSAGE)

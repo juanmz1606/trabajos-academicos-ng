@@ -21,6 +21,8 @@ export class ListarProponenteComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetRecordList();
+    
+    
   }
 
   GetRecordList(){

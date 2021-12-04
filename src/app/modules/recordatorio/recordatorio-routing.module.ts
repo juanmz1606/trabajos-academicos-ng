@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { CrearRecordatorioComponent } from './crear-recordatorio/crear-recordatorio.component';
 import { EditarRecordatorioComponent } from './editar-recordatorio/editar-recordatorio.component';
 import { EliminarRecordatorioComponent } from './eliminar-recordatorio/eliminar-recordatorio.component';
@@ -8,19 +9,23 @@ import { ListarRecordatorioComponent } from './listar-recordatorio/listar-record
 const routes: Routes = [
   {
     path: "crear-recordatorio",
-    component: CrearRecordatorioComponent
+    component: CrearRecordatorioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "editar-recordatorio/:id",
-    component: EditarRecordatorioComponent
+    component: EditarRecordatorioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-recordatorio/:id",
-    component: EliminarRecordatorioComponent
+    component: EliminarRecordatorioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-recordatorio",
-    component: ListarRecordatorioComponent
+    component: ListarRecordatorioComponent,
+    canActivate: [AuthenticatedGuard]
   }
 ];
 

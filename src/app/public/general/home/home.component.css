@@ -2,3 +2,15 @@ h2{
     color: blue;
     text-align: center;
 }
+.card-content{
+    height: 300px;
+}
+
+.card-title{
+    height: 150px;
+    font-weight: bold;
+}
+
+.descripcion{
+    height: 200px;
+}

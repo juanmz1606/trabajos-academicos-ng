@@ -13,6 +13,6 @@ export class ProponenteModel{
     celular?: string;
     fotografia?: string;
     id_tipoVinculacion?: number;
-    tipoVinculacion?: TipoVinculacionModel;
+    tiene_tipoVinculacion?: TipoVinculacionModel;
     departamentos?: DepartamentoModel[];
 }
