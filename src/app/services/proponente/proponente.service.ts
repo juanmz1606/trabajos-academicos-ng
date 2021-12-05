@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
+import { ArregloDepartamentosModel } from 'src/app/models/arreglos/arreglo-departamentos.model';
+import { DepartamentoModel } from 'src/app/models/parameters/departamento.model';
 import { ProponenteModel } from 'src/app/models/proponente/proponente.model';
 import { UploadedFileModel } from 'src/app/models/proponente/uploaded-file.model';
 import { LocalStorageService } from '../compartido/local-storage.service';
@@ -51,6 +53,27 @@ export class ProponenteService {
           })
         }
       );
+  }
+
+  AsociarDepartamentos(id: number|undefined, departamentos: number[]) {
+    if (id != undefined) {
+      let arregloDepartamentos = new ArregloDepartamentosModel
+      arregloDepartamentos.departamentos = departamentos
+      return this.http.post<ArregloDepartamentosModel>
+      (`${this.url}/asociar-proponente-departamentos/${id}`,
+        {
+          departamentos: arregloDepartamentos.departamentos
+        },
+        {
+          headers: new HttpHeaders({
+            Authorization: `Bearer ${this.token}`
+          })
+        }
+      );
+    }else{
+      return
+    }
+    
   }
 
   EditeRecord(data: ProponenteModel): Observable<ProponenteModel> {

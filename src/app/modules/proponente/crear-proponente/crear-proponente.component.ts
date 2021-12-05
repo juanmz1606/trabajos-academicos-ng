@@ -62,7 +62,7 @@ export class CrearProponenteComponent implements OnInit {
           setTimeout(() => {
             initSelectById("selDepartamentos");
           }, 100)
-          
+
         }
       }
     );
@@ -71,21 +71,31 @@ export class CrearProponenteComponent implements OnInit {
   CreateForm() {
     this.form = this.fb.group({
       primerNombre: ["", [Validators.required]],
-      otrosNombres: ["",[]],
+      otrosNombres: ["", []],
       primerApellido: ["", [Validators.required]],
       segundoApellido: ["", [Validators.required]],
       documento: ["", [Validators.required]],
       fechaNacimiento: ["", [Validators.required]],
       email: ["", [Validators.required]],
-      celular: ["",[]],
-      fotografia: ["",[Validators.required]]
+      celular: ["", []],
+      fotografia: ["", [Validators.required]],
+      tipoVinculacion: [[Validators.required]],
+      departamentos: [[Validators.required]]
     });
   }
 
-  CreateFormFile(){
+  CreateFormFile() {
     this.formFile = this.fb.group({
-      file: ["",[]]
+      file: ["", []]
     })
+  }
+
+  ParsearDepartamentos(){
+    let departamentos: number[] = []
+    this.form.controls['departamentos'].value.forEach((element: any) => {
+      departamentos.push(parseInt(element))
+    });
+    return departamentos
   }
 
   SaveRecord() {
@@ -99,8 +109,10 @@ export class CrearProponenteComponent implements OnInit {
     model.email = this.form.controls['email'].value;
     model.celular = this.form.controls['celular'].value;
     model.fotografia = this.form.controls['fotografia'].value;
+    model.id_tipoVinculacion = parseInt(this.form.controls['tipoVinculacion'].value)
     this.service.SaveRecord(model).subscribe({
       next: (data: ProponenteModel) => {
+        this.service.AsociarDepartamentos(data.id,this.ParsearDepartamentos())
         OpenGeneralMessageModal(GeneralData.SAVED_MESSAGE);
         this.router.navigate(["/proponente/listar-proponente"]);
       },
@@ -111,18 +123,18 @@ export class CrearProponenteComponent implements OnInit {
 
   }
 
-  OnchangeInputFile(event:any){
+  OnchangeInputFile(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.formFile.controls["file"].setValue(file);
     }
   }
 
-  UploadImage(){
-    const formData =  new FormData();
+  UploadImage() {
+    const formData = new FormData();
     formData.append("file", this.formFile.controls["file"].value);
     this.service.UploadFile(formData).subscribe({
-      next:(data: UploadedFileModel) =>{
+      next: (data: UploadedFileModel) => {
         this.form.controls["fotografia"].setValue(data.filename)
         this.uploadedFilename = data.filename;
         this.uploadedFile = true;
