@@ -57,7 +57,7 @@
         </div>
         <div class="row">
             <div class="input-field col s3">
-                <select id="selTipoVinculacion">
+                <select formControlName="tipoVinculacion" id="selTipoVinculacion">
                     <option *ngFor="let tV of tipoVinculacionList" value="{{tV.id}}">{{tV.nombre}}</option>
                 </select>
                 <label>Tipo de Vinculación</label>

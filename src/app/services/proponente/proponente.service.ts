@@ -73,7 +73,6 @@ export class ProponenteService {
     }else{
       return
     }
-    
   }
 
   EditeRecord(data: ProponenteModel): Observable<ProponenteModel> {

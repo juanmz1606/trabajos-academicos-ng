@@ -1,1 +1,50 @@
-<p>eliminar-proponente works!</p>
+<div class="row">
+    <input type="hidden" formControlName="id">
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="" class="black-text">¿Está seguro de querer eliminar el registro con la siguiente información?:</label>
+            <br>
+            <ul>
+                <li>
+                    <strong>Primer Nombre: {{primerNombre}}</strong>
+                </li>
+                <li>
+                    <strong>Otros Nombres: {{otrosNombres}}</strong>
+                </li>
+                <li>
+                    <strong>Primer Apellido: {{primerApellido}}</strong>
+                </li>
+                <li>
+                    <strong>Segundo Apellido: {{segundoApellido}}</strong>
+                </li>
+                <li>
+                    <strong>Documento: {{fechaNacimiento}}</strong>
+                </li>
+                <li>
+                    <strong>Email: {{email}}</strong>
+                </li>
+                <li>
+                    <strong>Celular: {{celular}}</strong>
+                </li>
+                <li>
+                    <strong>Fotografía: {{fotografia}}</strong>
+                </li>
+                <li>
+                    <strong>Tipo de vinculación: {{tiene_tipoVinculacion}}</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s2">
+            <a routerLink="/proponente/listar-proponente" class="btn btn-warning red">
+                Cancelar
+            </a>
+        </div>
+        <div class="input-field col s10">
+            <button (click)="RemoveRecord()" class="btn btn-success">
+                Eliminar
+            </button>
+        </div>
+    </div>
+</div>

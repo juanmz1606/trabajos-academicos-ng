@@ -82,7 +82,8 @@ export class EditarProponenteComponent implements OnInit {
       fechaNacimiento: ["", [Validators.required]],
       email: ["", [Validators.required]],
       celular: ["", []],
-      fotografia: ["", [Validators.required]]
+      fotografia: ["", [Validators.required]],
+      tipoVinculacion: [[Validators.required]]
     });
   }
 
@@ -103,7 +104,7 @@ export class EditarProponenteComponent implements OnInit {
         this.form.controls['fechaNacimiento'].setValue(data.fechaNacimiento);
         this.form.controls['email'].setValue(data.email);
         this.form.controls['celular'].setValue(data.celular);
-        this.form.controls['email'].setValue(data.email);
+        this.form.controls['fotografia'].setValue(data.fotografia);
       }
     });
   }
@@ -126,6 +127,7 @@ export class EditarProponenteComponent implements OnInit {
     model.email = this.form.controls['email'].value;
     model.celular = this.form.controls['celular'].value;
     model.fotografia = this.form.controls['fotografia'].value;
+    model.id_tipoVinculacion = parseInt(this.form.controls['tipoVinculacion'].value)
     this.service.EditeRecord(model).subscribe({
       next: (data: DepartamentoModel) => {
         OpenGeneralMessageModal(GeneralData.EDITED_MESSAGE);

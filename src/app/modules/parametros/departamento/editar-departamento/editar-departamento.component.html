@@ -6,9 +6,13 @@
                 <input formControlName="nombre" id="nombre" type="text">
                 <label for="nombre" class="active">Nombre</label>
             </div>
-            <div class="input-field col s12">
-                <input formControlName="id_facultad" id="id_facultad" type="number">
-                <label for="id_facultad" class="active">Id Facultad</label>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <select formControlName="facultad" id="selFacultad">
+                    <option *ngFor="let f of facultadList" value="{{f.id}}">{{f.nombre}}</option>
+                </select>
+                <label>Facultad</label>
             </div>
         </div>
         <div class="row">

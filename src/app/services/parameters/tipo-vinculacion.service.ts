@@ -28,7 +28,6 @@ export class TipoVinculacionService {
   }
 
   SaveRecord(data: TipoVinculacionModel): Observable<TipoVinculacionModel> {
-
     return this.http.post<TipoVinculacionModel>
       (`${this.url}/tipos-vinculacion`,
         {
