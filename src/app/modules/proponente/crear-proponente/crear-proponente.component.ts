@@ -5,7 +5,7 @@ import { GeneralData } from 'src/app/config/general-data';
 import { DepartamentoModel } from 'src/app/models/parameters/departamento.model';
 import { TipoVinculacionModel } from 'src/app/models/parameters/tipo-vinculacion.model';
 import { ProponenteModel } from 'src/app/models/proponente/proponente.model';
-import { UploadedFileModel } from 'src/app/models/proponente/uploaded-file.model';
+import { UploadedFileModel } from 'src/app/models/uploaded-file.model';
 import { DepartamentoService } from 'src/app/services/parameters/departamento.service';
 import { TipoVinculacionService } from 'src/app/services/parameters/tipo-vinculacion.service';
 import { ProponenteService } from 'src/app/services/proponente/proponente.service';

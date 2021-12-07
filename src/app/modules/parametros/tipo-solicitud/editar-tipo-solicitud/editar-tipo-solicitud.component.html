@@ -1,1 +1,42 @@
-<p>editar-tipo-solicitud works!</p>
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <br><br><br>
+            <div class="col s12 center-align">
+                <input class="btn btn-warning orange" type="file" value="Seleccionar" name="formato"
+                    (change)="OnchangeInputFile($event)">
+                &nbsp;<button (click)="UploadFormat()" class="btn">Cargar Formato</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <input type="hidden" formControlName="id">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="formato" type="text" formControlName="formato">
+                <label for="formato">Formato</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input formControlName="nombre" id="nombre" type="text">
+                <label for="nombre" class="active">Nombre</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/parametros/listar-tipo-solicitud" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="EditeRecord()" class="btn btn-success">
+                    Guardar
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

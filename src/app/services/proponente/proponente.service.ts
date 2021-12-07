@@ -5,7 +5,7 @@ import { GeneralData } from 'src/app/config/general-data';
 import { ArregloDepartamentosModel } from 'src/app/models/arreglos/arreglo-departamentos.model';
 import { DepartamentoModel } from 'src/app/models/parameters/departamento.model';
 import { ProponenteModel } from 'src/app/models/proponente/proponente.model';
-import { UploadedFileModel } from 'src/app/models/proponente/uploaded-file.model';
+import { UploadedFileModel } from 'src/app/models/uploaded-file.model';
 import { LocalStorageService } from '../compartido/local-storage.service';
 
 @Injectable({

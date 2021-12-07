@@ -47,7 +47,6 @@ export class EliminarProponenteComponent implements OnInit {
         if (data.id && data.primerNombre && data.otrosNombres && data.primerApellido && data.segundoApellido
           && data.documento && data.fechaNacimiento && data.email
         ) {
-          console.log(data);
           this.id = data.id;
           this.primerNombre = data.primerNombre;
           this.otrosNombres = data.otrosNombres;
