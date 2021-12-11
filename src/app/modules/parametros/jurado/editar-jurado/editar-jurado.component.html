@@ -1,1 +1,37 @@
-<p>editar-jurado works!</p>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <input type="hidden" formControlName="id">
+        <div class="row">
+            <div class="input-field col s12">
+                <input formControlName="nombre" id="nombre" type="text">
+                <label for="nombre" class="active">Nombre</label>
+            </div>
+            <div class="input-field col s12">
+                <input formControlName="telefono" id="telefono" type="text">
+                <label for="telefono" class="active">Teléfono</label>
+            </div>
+            <div class="input-field col s12">
+                <input formControlName="email" id="email" type="text">
+                <label for="email" class="active">E-mail</label>
+            </div>
+            <div class="input-field col s12">
+                <input formControlName="entidad" id="entidad" type="text">
+                <label for="entidad" class="active">Entidad</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/parametros/listar-jurado" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="EditeRecord()" class="btn btn-success">
+                    Editar
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+

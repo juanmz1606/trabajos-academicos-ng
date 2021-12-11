@@ -1,1 +1,59 @@
-<p>listar-jurado works!</p>
+<br>
+
+<table class="table responsive-table">
+    <thead>
+        <th>
+            Id
+        </th>
+        <th>
+           Nombre
+        </th>
+        <th>
+            Teléfono
+        </th>
+        <th>
+            E-mail
+        </th>
+        <th>
+            Entidad
+        </th>
+        <th>
+            Acciones
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let j of recordList | paginate: { itemsPerPage: pageSize,
+                                                      currentPage: p,
+                                                      totalItems: total }">
+            <td>
+                {{j.id}}
+            </td>
+            <td>
+                {{j.nombre}}
+            </td>
+            <td>
+                {{j.telefono}}
+            </td>
+            <td>
+                {{j.email}}
+            </td>
+            <td>
+                {{j.entidad}}
+            </td>
+            <td>
+                <a routerLink="/parametros/editar-jurado/{{j.id}}" class="btn btn-warning orange">Editar</a>
+                &nbsp;<a routerLink="/parametros/eliminar-jurado/{{j.id}}" class="btn btn-warning red">Eliminar</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+                nextLabel="Siguiente"></pagination-controls>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a routerLink="/parametros/crear-jurado" class="btn btn-success">Nuevo Registro</a>
+<p></p>
