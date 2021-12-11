@@ -1,1 +1,47 @@
-<p>eliminar-solicitud works!</p>
+<div class="row">
+    <input type="hidden" formControlName="id">
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="" class="black-text">¿Está seguro de querer eliminar el registro con la siguiente información?:</label>
+            <br>
+            <ul>
+                <li>
+                    <strong>Fecha: {{fecha}}</strong>
+                </li>
+                <li>
+                    <strong>Nombre del trabajo: {{nombreTrabajo}}</strong>
+                </li>
+                <li>
+                    <strong>Archivo: {{archivo}}</strong>
+                </li>
+                <li>
+                    <strong>Descripción: {{descripcion}}</strong>
+                </li>
+                <li>
+                    <strong>Línea de investigación: {{tiene_lineaInvestigacion}}</strong>
+                </li>
+                <li>
+                    <strong>Tipo de solicitud: {{tiene_tipoSolicitud}}</strong>
+                </li>
+                <li>
+                    <strong>Modalidad: {{tiene_modalidad}}</strong>
+                </li>
+                <li>
+                    <strong>Estado de la solicitud: {{tiene_estadoSolicitud}}</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s2">
+            <a routerLink="/solicitud/listar-solicitudes" class="btn btn-warning red">
+                Cancelar
+            </a>
+        </div>
+        <div class="input-field col s10">
+            <button (click)="RemoveRecord()" class="btn btn-success">
+                Eliminar
+            </button>
+        </div>
+    </div>
+</div>

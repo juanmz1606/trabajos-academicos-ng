@@ -1,1 +1,108 @@
-<p>listar-solicitudes works!</p>
+<br>
+
+<table class="table responsive-table">
+    <thead>
+        <th>
+            Id
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Nombre del Trabajo
+        </th>
+        <th>
+            Archivo
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Proponentes
+        </th>
+        <th>
+            Modalidad
+        </th>
+        <th>
+            Tipo Solicitud
+        </th>
+        <th>
+            Estado Solicitud
+        </th>
+        <th>
+            Línea Investigación
+        </th>
+        <th>
+            Comites
+        </th>
+        <th>
+            Fecha Invitaciones a Evaluar
+        </th>
+        <th>
+            Acciones
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of recordList | paginate: { itemsPerPage: pageSize,
+            currentPage: p,
+            totalItems: total }">
+            <td>
+                {{s.id}}
+            </td>
+            <td>
+                {{s.fecha}}
+            </td>
+            <td>
+                {{s.nombreTrabajo}}
+            </td>
+            <td>
+                {{s.archivo}}
+            </td>
+            <td>
+                {{s.descripcion}}
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let p of s.proponentes">{{p.primerNombre}} {{p.otrosNombres}}</li>
+                </ul>
+            </td>
+            <td>
+                {{s.tiene_modalidad?.nombre}}
+            </td>
+            <td>
+                {{s.tiene_tipoSolicitud?.nombre}}
+            </td>
+            <td>
+                {{s.tiene_estadoSolicitud?.nombre}}
+            </td>
+            <td>
+                {{s.tiene_lineaInvestigacion?.nombre}}
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let c of s.comites">{{c.nombre}}</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let iE of s.invitacionesEvaluar">{{iE.fechaInvitacion}}</li>
+                </ul>
+            </td>
+            <td>
+                <a routerLink="/solicitud/editar-solicitud/{{s.id}}" class="btn btn-warning orange">Editar</a>
+                &nbsp;<a routerLink="/solicitud/eliminar-solicitud/{{s.id}}"
+                    class="btn btn-warning red">Eliminar</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+                nextLabel="Siguiente"></pagination-controls>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a routerLink="/solicitud/crear-solicitud" class="btn btn-success">Nuevo Registro</a>
+<p></p>

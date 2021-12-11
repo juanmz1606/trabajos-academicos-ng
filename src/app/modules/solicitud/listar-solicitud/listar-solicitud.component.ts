@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GeneralData } from 'src/app/config/general-data';
 import { SolicitudModel } from 'src/app/models/solicitud/solicitud.model';
 import { SolicitudService } from 'src/app/services/solicitud/solicitud.service';
 

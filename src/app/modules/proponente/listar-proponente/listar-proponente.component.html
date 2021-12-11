@@ -39,54 +39,62 @@
             Departamentos
         </th>
         <th>
+            Solicitudes
+        </th>
+        <th>
             Acciones
         </th>
     </thead>
     <tbody>
-        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: pageSize,
+        <tr *ngFor="let p of recordList | paginate: { itemsPerPage: pageSize,
                                                       currentPage: p,
                                                       totalItems: total }">
             <td>
-                {{r.id}}
+                {{p.id}}
             </td>
             <td>
-                {{r.primerNombre}}
+                {{p.primerNombre}}
             </td>
             <td>
-                {{r.otrosNombres}}
+                {{p.otrosNombres}}
             </td>
             <td>
-                {{r.primerApellido}}
+                {{p.primerApellido}}
             </td>
             <td>
-                {{r.segundoApellido}}
+                {{p.segundoApellido}}
             </td>
             <td>
-                {{r.documento}}
+                {{p.documento}}
             </td>
             <td>
-                {{r.fechaNacimiento}}
+                {{p.fechaNacimiento}}
             </td>
             <td>
-                {{r.email}}
+                {{p.email}}
             </td>
             <td>
-                {{r.celular}}
+                {{p.celular}}
             </td>
             <td>
-                {{r.fotografia}}
+                {{p.fotografia}}
             </td>
             <td>
-                {{r.tiene_tipoVinculacion?.nombre}}
+                {{p.tiene_tipoVinculacion?.nombre}}
             </td>
             <td>
                 <ul>
-                    <li *ngFor="let d of r.departamentos">{{d.nombre}}</li>
+                    <li *ngFor="let d of p.departamentos">{{d.nombre}}</li>
                 </ul>
             </td>
             <td>
-                <a routerLink="/proponente/editar-proponente/{{r.id}}" class="btn btn-warning orange">Editar</a>
-                &nbsp;<a routerLink="/proponente/eliminar-proponente/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+                <ul>
+                    <li *ngFor="let s of p.solicitudes">{{s.nombreTrabajo}}</li>
+                </ul>
+            </td>
+            <td>
+                <a routerLink="/proponente/editar-proponente/{{p.id}}" class="btn btn-warning orange">Editar</a>
+                &nbsp;<a routerLink="/proponente/eliminar-proponente/{{p.id}}" class="btn btn-warning red">Eliminar</a>
             </td>
         </tr>
         <tr>

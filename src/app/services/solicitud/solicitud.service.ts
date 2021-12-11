@@ -13,7 +13,9 @@ export class SolicitudService {
 
   url: string = GeneralData.BUSSINESS_URL;
   token: string = ""
-  //filter: string = `?filter={"include":[{"relation":"tiene_tipoVinculacion"},{"relation":"departamentos"}]}`
+  filter: string = `?filter={"include":[{"relation":"proponentes"},{"relation":"tiene_modalidad"},
+  {"relation":"tiene_tipoSolicitud"},{"relation":"tiene_estadoSolicitud"},
+  {"relation":"tiene_lineaInvestigacion"},{"relation":"comites"},{"relation":"invitacionesEvaluar"}]}`
 
   constructor(
     private http: HttpClient,
@@ -23,7 +25,7 @@ export class SolicitudService {
   }
 
   GetRecordList(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>(`${this.url}/solicitudes`);
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitudes${this.filter}`);
   }
 
   SearchRecord(id: number): Observable<SolicitudModel> {

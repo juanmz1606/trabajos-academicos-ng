@@ -1,5 +1,6 @@
 import { DepartamentoModel } from "../parameters/departamento.model";
 import { TipoVinculacionModel } from "../parameters/tipo-vinculacion.model";
+import { SolicitudModel } from "../solicitud/solicitud.model";
 
 export class ProponenteModel{
     id?: number;
@@ -15,4 +16,5 @@ export class ProponenteModel{
     id_tipoVinculacion?: number;
     tiene_tipoVinculacion?: TipoVinculacionModel;
     departamentos?: DepartamentoModel[];
+    solicitudes?: SolicitudModel[];
 }

@@ -15,7 +15,8 @@ export class ProponenteService {
 
   url: string = GeneralData.BUSSINESS_URL;
   token: string = ""
-  filter: string = `?filter={"include":[{"relation":"tiene_tipoVinculacion"},{"relation":"departamentos"}]}`
+  filter: string = `?filter={"include":[{"relation":"tiene_tipoVinculacion"},
+  {"relation":"departamentos"},{"relation":"solicitudes"}]}`
 
   constructor(
     private http: HttpClient,

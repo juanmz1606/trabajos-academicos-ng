@@ -10,7 +10,8 @@ import { SeguridadService } from 'src/app/services/compartido/seguridad.service'
 })
 export class HeaderComponent implements OnInit {
 
-  user_data:string = "";
+  user_data: string = "";
+  session: boolean = false;
   subscription: Subscription = new Subscription();
 
   constructor(private servicioSeguridad: SeguridadService) { }
@@ -18,12 +19,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = this.servicioSeguridad.GetSessionStatus().subscribe({
       next: (data: SessionData) => {
-        if (data.usuario?.nombre) {
-          this.user_data = data.usuario?.nombre;
+        this.session = data.isLoggedIn;
+        if (data.usuario?.nombre && data.usuario?.apellidos) {
+          this.user_data = `${data.usuario?.nombre} ${data.usuario?.apellidos}`;
         }
       },
       error: (err) => {
-        
+
       }
     });
 

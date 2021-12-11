@@ -1,27 +1,97 @@
 <div class="row">
+    <div class="col s12">
+        <div class="row">
+            <br><br><br>
+            <div class="col s12 center-align">
+                <input class="btn btn-warning orange" type="file" value="Seleccionar" name="archivo"
+                    (change)="OnchangeInputFile($event)">
+                &nbsp;<button (click)="UploadFormat()" class="btn">Cargar Archivo</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
     <form [formGroup]="form" class="col s12">
-        <input type="hidden" formControlName="id">
         <div class="row">
             <div class="input-field col s12">
-                <input formControlName="nombre" id="nombre" type="text">
-                <label for="nombre" class="active">Nombre</label>
-            </div>
-            <div class="input-field col s12">
-                <input formControlName="id_facultad" id="id_facultad" type="number">
-                <label for="id_facultad" class="active">Id Facultad</label>
+                <input id="archivo" type="text" formControlName="archivo">
+                <label for="archivo" class="active">Archivo</label>
             </div>
         </div>
         <div class="row">
+            <div class="input-field col s4">
+                <input formControlName="fecha" id="fecha" type="text">
+                <label for="fecha" class="active">Fecha</label>
+            </div>
+            <div class="input-field col s4">
+                <input formControlName="nombreTrabajo" id="nombreTrabajo" type="text">
+                <label for="nombreTrabajo" class="active">Nombre del trabajo</label>
+            </div>
+            <div class="input-field col s4">
+                <input formControlName="descripcion" id="descripcion" type="text">
+                <label for="descripcion" class="active">Descripción</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <select multiple formControlName="proponentes" id="selProponente">
+                    <option *ngFor="let p of proponentesList" value="{{p.id}}">{{p.primerNombre}} {{p.primerApellido}} {{p.segundoApellido}}</option>
+                </select>
+                <label>Poponentes</label>
+            </div>
+            <div class="input-field col s6">
+                <select formControlName="modalidad" id="selModalidad">
+                    <option *ngFor="let m of modalidadList" value="{{m.id}}">{{m.nombre}}</option>
+                </select>
+                <label>Modalidad</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <select formControlName="tipoSolicitud" id="selTipoSolicitud">
+                    <option *ngFor="let tS of tipoSolicitudList" value="{{tS.id}}">{{tS.nombre}}</option>
+                </select>
+                <label>Tipo de solicitud</label>
+            </div>
+            <div class="input-field col s6">
+                <select formControlName="estadoSolicitud" id="selEstadoSolicitud">
+                    <option *ngFor="let eS of estadoSolicitudList" value="{{eS.id}}">{{eS.nombre}}</option>
+                </select>
+                <label>Estado de la solicitud</label>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <select formControlName="lineaInvestigacion" id="selLineaInvestigacion">
+                    <option *ngFor="let lI of lineaInvestigacionList" value="{{lI.id}}">{{lI.nombre}}</option>
+                </select>
+                <label>Línea de investigación</label>
+            </div>
+            <div class="input-field col s6">
+                <select multiple formControlName="comites" id="selComites">
+                    <option *ngFor="let c of comiteList" value="{{c.id}}">{{c.nombre}}</option>
+                </select>
+                <label>Comités</label>
+            </div>
+            <!-- <div class="input-field col s6">
+                <select multiple formControlName="invitacionEvaluar" id="selInvitacionEvaluar">
+                    <option *ngFor="let iE of invitacionEvaluarList" value="{{iE.id}}">Id: {{iE.id}} - Fecha invitación: {{iE.fechaInvitacion}}</option>
+                </select>
+                <label>Invitaciones a evaluar</label>
+            </div> -->
+        </div>
+        <div class="row">
             <div class="input-field col s2">
-                <a routerLink="/parametros/listar-departamento" class="btn btn-warning red">
+                <a routerLink="/solicitud/listar-solicitudes" class="btn btn-warning red">
                     Cancelar
                 </a>
             </div>
-            <!-- <div class="input-field col s10">
+            <div class="input-field col s10">
                 <button (click)="EditeRecord()" class="btn btn-success">
-                    Editar
+                    Guardar
                 </button>
-            </div> -->
+            </div>
         </div>
 
     </form>

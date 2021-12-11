@@ -129,7 +129,7 @@ export class EditarProponenteComponent implements OnInit {
     model.fotografia = this.form.controls['fotografia'].value;
     model.id_tipoVinculacion = parseInt(this.form.controls['tipoVinculacion'].value)
     this.service.EditeRecord(model).subscribe({
-      next: (data: DepartamentoModel) => {
+      next: (data: ProponenteModel) => {
         OpenGeneralMessageModal(GeneralData.EDITED_MESSAGE);
         this.router.navigate(["/proponente/listar-proponente"]);
       },

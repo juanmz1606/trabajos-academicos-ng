@@ -1,1 +1,41 @@
-<p>listar-comite works!</p>
+<br>
+
+<table class="table responsive-table">
+    <thead>
+        <th>
+            Id
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Acciones
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of recordList | paginate: { itemsPerPage: pageSize,
+                                                      currentPage: p,
+                                                      totalItems: total }">
+            <td>
+                {{c.id}}
+            </td>
+            <td>
+                {{c.nombre}}
+            </td>
+            <td>
+                <a routerLink="/parametros/editar-comite/{{c.id}}" class="btn btn-warning orange">Editar</a>
+                &nbsp;<a routerLink="/parametros/eliminar-comite/{{c.id}}" class="btn btn-warning red">Eliminar</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+                nextLabel="Siguiente"></pagination-controls>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a routerLink="/parametros/crear-comite" class="btn btn-success">Nuevo Registro</a>
+<p></p>
