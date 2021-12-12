@@ -33,6 +33,9 @@
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
+  <li *ngIf="!session"><a routerLink="seguridad/login">Login</a></li>
+  <li *ngIf="session"><a routerLink="seguridad/logout">Logout</a></li>
+  <li *ngIf="session"><a routerLink="seguridad/cambiar-clave">Cambiar clave</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-departamento">Departamento</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-facultad">Facultad</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-modalidad">Modalidad</a></li>
@@ -47,7 +50,4 @@
   <li *ngIf="session"><a routerLink="proponente/listar-proponente">Proponente</a></li>
   <li *ngIf="session"><a routerLink="reportes/listar-reportes">Reportes</a></li>
   <li *ngIf="session"><a routerLink="seguridad/listar-usuario">Usuarios</a></li>
-  <li *ngIf="!session"><a routerLink="seguridad/login">Login</a></li>
-  <li *ngIf="session"><a routerLink="seguridad/cambiar-clave">Cambiar clave</a></li>
-  <li *ngIf="session"><a routerLink="seguridad/logout">Logout</a></li>
 </ul>

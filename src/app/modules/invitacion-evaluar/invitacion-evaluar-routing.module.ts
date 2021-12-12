@@ -23,7 +23,7 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "listar-invitacion-evaluar",
+    path: "listar-invitacion-evaluar/id",
     component: ListarInvitacionEvaluarComponent,
     canActivate: [AuthenticatedGuard]
   }

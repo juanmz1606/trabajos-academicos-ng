@@ -19,7 +19,7 @@ export class SolicitudService {
 
   constructor(
     private http: HttpClient,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService 
   ) {
     this.token = this.localStorageService.getToken();
   }
@@ -29,7 +29,7 @@ export class SolicitudService {
   }
 
   SearchRecord(id: number): Observable<SolicitudModel> {
-    return this.http.get<SolicitudModel>(`${this.url}/solicitudes/${id}`);
+    return this.http.get<SolicitudModel>(`${this.url}/solicitudes/${id}${this.filter}`);
   }
 
   SaveRecord(data: SolicitudModel): Observable<SolicitudModel> {

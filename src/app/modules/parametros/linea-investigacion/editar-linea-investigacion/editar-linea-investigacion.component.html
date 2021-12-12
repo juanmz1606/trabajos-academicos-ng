@@ -1,1 +1,23 @@
-<p>editar-linea-investigacion works!</p>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <input type="hidden" formControlName="id">
+        <div class="row">
+            <div class="input-field col s12">
+                <input formControlName="nombre" id="nombre" type="text">
+                <label for="nombre" class="active">Nombre</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/proponente/listar-linea-investigacion" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="EditeRecord()" class="btn btn-success">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

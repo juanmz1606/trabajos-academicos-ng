@@ -12,7 +12,7 @@ export class InvitacionEvaluarService {
  
   url: string = GeneralData.BUSSINESS_URL;
   token: string = ""
-  filter: string = `?filter={"include":[{"relation":"tiene_solicitud"},{"relation":"tiene_jurado"}]}`
+  filter: string = `?filter={"include":[{"relation":"tiene_jurado"}]}`
 
   constructor(
     private http: HttpClient,
@@ -20,13 +20,15 @@ export class InvitacionEvaluarService {
   ) {
     this.token = this.localStorageService.getToken();
   }
-
   GetRecordList(): Observable<InvitacionEvaluarModel[]> {
     return this.http.get<InvitacionEvaluarModel[]>(`${this.url}/invitaciones-evaluar${this.filter}`);
   }
 
   SearchRecord(id: number): Observable<InvitacionEvaluarModel> {
     return this.http.get<InvitacionEvaluarModel>(`${this.url}/invitaciones-evaluar/${id}`);
+  }
+  SearchRecordByIdSolicitud(id: number): Observable<InvitacionEvaluarModel[]> {
+    return this.http.get<InvitacionEvaluarModel[]>(`${this.url}/solicitudes/${id}/invitaciones-evaluar${this.filter}`);
   }
 
   SaveRecord(data: InvitacionEvaluarModel): Observable<InvitacionEvaluarModel> {
