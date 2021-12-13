@@ -1,3 +1,8 @@
+<p></p>
+<span class="boton"><a routerLink="/invitacion-evaluar/crear-invitacion-evaluar/{{id}}" class="btn btn-success">Crear nueva invitación</a></span>
+<span class="boton"><a routerLink="/home" class="btn btn-warning red">Volver</a></span>
+<p></p>
+
 <div class="row">
     <div class="col s3" *ngFor="let iE of invitacionEvaluarList">
         <div class="card grey lighten-4">
@@ -6,11 +11,12 @@
                 <ul>
                     <li><label>Estado: {{iE.estadoInvitacion}}</label></li>
                 </ul>
-                <p>{{iE.observaciones}}</p>
+                <p class="descripcion"><label>Observaciones</label><br>{{iE.observaciones}}</p>
             </div>
             <div class="card-action">
-                <p><a routerLink="/invitacion-evaluar/listar-invitacion-evaluar/{{iE.id}}">Ver más...</a></p>
+                <p><a routerLink="/invitacion-evaluar/info-invitacion-evaluar/{{iE.id}}">Ver más info...</a></p>
             </div>
         </div>
     </div>
 </div>
+

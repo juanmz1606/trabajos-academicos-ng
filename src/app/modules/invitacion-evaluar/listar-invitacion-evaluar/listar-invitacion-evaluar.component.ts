@@ -14,6 +14,7 @@ declare const OpenGeneralMessageModal: any;
 export class ListarInvitacionEvaluarComponent implements OnInit {
 
   url: string = GeneralData.BUSSINESS_URL;
+  id: number = parseInt(this.route.snapshot.params["id"]);
   
   invitacionEvaluarList: InvitacionEvaluarModel[] = [];
 
@@ -27,8 +28,7 @@ export class ListarInvitacionEvaluarComponent implements OnInit {
   }
 
   GetInvitacionEvaluarList(){
-    let id = parseInt(this.route.snapshot.params["id"]);
-    this.invitacionEvaluarService.SearchRecordByIdSolicitud(id).subscribe({
+    this.invitacionEvaluarService.SearchRecordByIdSolicitud(this.id).subscribe({
       next: (data: InvitacionEvaluarModel[]) => {
         this.invitacionEvaluarList = data;
       },

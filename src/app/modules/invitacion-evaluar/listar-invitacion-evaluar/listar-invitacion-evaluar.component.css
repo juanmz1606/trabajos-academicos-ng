@@ -1,0 +1,18 @@
+.boton{
+    margin: 5px;
+}
+
+.card-content{
+    height: 300px;
+    font-weight: bold;
+    color: black;
+}
+
+.card-title{
+    height: 150px;
+    font-weight: bold;
+}
+
+.descripcion{
+    height: 200px;
+}

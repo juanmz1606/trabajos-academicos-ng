@@ -1,1 +1,31 @@
-<p>crear-invitacion-evaluar works!</p>
+<br>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <select formControlName="solicitud" id="selSolicitud">
+                    <option *ngFor="let s of solicitudList" value="{{s.id}}">{{s.nombreTrabajo}} - {{s.tiene_lineaInvestigacion?.nombre}}</option>
+                </select>
+                <label>Solicitudes</label>
+            </div>
+            <div class="input-field col s6">
+                <select formControlName="jurado" id="selJurado">
+                    <option *ngFor="let j of juradoList" value="{{j.id}}">{{j.nombre}} - {{j.email}}</option>
+                </select>
+                <label>Jurado</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/invitacion-evaluar/listar-invitacion-evaluar/{{id}}" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="SaveRecord()" class="btn btn-success">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

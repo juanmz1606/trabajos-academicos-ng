@@ -6,6 +6,8 @@ import { CrearRecordatorioComponent } from './crear-recordatorio/crear-recordato
 import { EditarRecordatorioComponent } from './editar-recordatorio/editar-recordatorio.component';
 import { EliminarRecordatorioComponent } from './eliminar-recordatorio/eliminar-recordatorio.component';
 import { ListarRecordatorioComponent } from './listar-recordatorio/listar-recordatorio.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +19,10 @@ import { ListarRecordatorioComponent } from './listar-recordatorio/listar-record
   ],
   imports: [
     CommonModule,
-    RecordatorioRoutingModule
+    RecordatorioRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class RecordatorioModule { }

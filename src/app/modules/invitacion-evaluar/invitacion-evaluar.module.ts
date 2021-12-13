@@ -6,6 +6,9 @@ import { CrearInvitacionEvaluarComponent } from './crear-invitacion-evaluar/crea
 import { EditarInvitacionEvaluarComponent } from './editar-invitacion-evaluar/editar-invitacion-evaluar.component';
 import { EliminarInvitacionEvaluarComponent } from './eliminar-invitacion-evaluar/eliminar-invitacion-evaluar.component';
 import { ListarInvitacionEvaluarComponent } from './listar-invitacion-evaluar/listar-invitacion-evaluar.component';
+import { InfoInvitacionEvaluarComponent } from './info-invitacion-evaluar/info-invitacion-evaluar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -13,11 +16,15 @@ import { ListarInvitacionEvaluarComponent } from './listar-invitacion-evaluar/li
     CrearInvitacionEvaluarComponent,
     EditarInvitacionEvaluarComponent,
     EliminarInvitacionEvaluarComponent,
-    ListarInvitacionEvaluarComponent
+    ListarInvitacionEvaluarComponent,
+    InfoInvitacionEvaluarComponent
   ],
   imports: [
     CommonModule,
-    InvitacionEvaluarRoutingModule
+    InvitacionEvaluarRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class InvitacionEvaluarModule { }

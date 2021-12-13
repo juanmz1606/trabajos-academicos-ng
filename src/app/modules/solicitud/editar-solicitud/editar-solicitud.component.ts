@@ -40,6 +40,7 @@ export class EditarSolicitudComponent implements OnInit {
   invitacionEvaluarList: InvitacionEvaluarModel[] = [];
   formFile: FormGroup = new FormGroup({});
   url: string = GeneralData.BUSSINESS_URL;
+  id = parseInt(this.route.snapshot.params["id"]);
 
 
   constructor(
@@ -153,8 +154,7 @@ export class EditarSolicitudComponent implements OnInit {
   }
 
   SearchRecord() {
-    let id = parseInt(this.route.snapshot.params["id"]);
-    this.service.SearchRecord(id).subscribe({
+    this.service.SearchRecord(this.id).subscribe({
       next: (data: SolicitudModel) => {
         this.form.controls['id'].setValue(data.id);
         this.form.controls['archivo'].setValue(data.archivo);

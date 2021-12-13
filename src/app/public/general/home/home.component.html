@@ -10,8 +10,10 @@
                 <p class="descripcion">{{s.descripcion}}</p>
             </div>
             <div class="card-action">
-                <p><a routerLink="/solicitud/listar-solicitud/{{s.id}}">Ver más...</a></p>
-                <p><a routerLink="/invitacion-evaluar/listar-invitaciones-evaluar/{{s.id}}">Evaluaciones</a></p>
+                <a routerLink="/solicitud/listar-solicitud/{{s.id}}">Ver más info</a> 
+            </div>
+            <div class="card-action">
+                <a routerLink="/invitacion-evaluar/listar-invitacion-evaluar/{{s.id}}">Ver invitaciones a evaluar</a>
             </div>
         </div>
     </div>

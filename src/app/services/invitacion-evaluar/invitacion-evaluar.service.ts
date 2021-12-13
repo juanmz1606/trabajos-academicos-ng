@@ -25,7 +25,7 @@ export class InvitacionEvaluarService {
   }
 
   SearchRecord(id: number): Observable<InvitacionEvaluarModel> {
-    return this.http.get<InvitacionEvaluarModel>(`${this.url}/invitaciones-evaluar/${id}`);
+    return this.http.get<InvitacionEvaluarModel>(`${this.url}/invitaciones-evaluar/${id}${this.filter}`);
   }
   SearchRecordByIdSolicitud(id: number): Observable<InvitacionEvaluarModel[]> {
     return this.http.get<InvitacionEvaluarModel[]>(`${this.url}/solicitudes/${id}/invitaciones-evaluar${this.filter}`);

@@ -36,9 +36,6 @@
             Comites
         </th>
         <th>
-            Fecha Invitaciones a Evaluar
-        </th>
-        <th>
             Acciones
         </th>
     </thead>
@@ -82,15 +79,13 @@
                 </ul>
             </td>
             <td>
-                <ul>
-                    <li *ngFor="let iE of record.invitacionesEvaluar">{{iE.fechaInvitacion}}</li>
-                </ul>
-            </td>
-            <td>
                 <a routerLink="/solicitud/editar-solicitud/{{record.id}}" class="btn btn-warning orange">Editar</a>
                 &nbsp;<a routerLink="/solicitud/eliminar-solicitud/{{record.id}}" class="btn btn-warning red">Eliminar</a>
             </td>
         </tr>
     </tbody>
 </table>
+
+<br>
+<a routerLink="/home" class="btn btn-success">Volver</a>
 <p></p>
