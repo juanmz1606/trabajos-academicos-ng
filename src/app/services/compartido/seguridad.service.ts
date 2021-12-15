@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { CambioClaveModel } from 'src/app/models/cambio-clave.model';
 import { SessionData } from 'src/app/models/session-data.model';
+import { UsuarioModel } from 'src/app/models/usuario/usuario.model';
 import { GeneralData } from '../../config/general-data';
 import { ModeloCredencialesUsuario } from '../../models/credenciales-usuario.model';
 import { LocalStorageService } from './local-storage.service';
@@ -42,6 +44,14 @@ export class SeguridadService {
     return this.http.post<SessionData>(`${this.url}/identificar-usuario`,{
       usuario: modelo.usuario,
       clave: modelo.contrasena
+    });
+  }
+
+  CambiarClave(modelo: CambioClaveModel): Observable<UsuarioModel>{
+    return this.http.post<UsuarioModel>(`${this.url}/cambiar-clave`,{
+      id_usuario: modelo.id_usuario,
+      clave_actual: modelo.clave_actual,
+      nueva_clave: modelo.nueva_clave
     });
   }
 

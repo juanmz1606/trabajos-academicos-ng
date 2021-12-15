@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   CreateForm(){
     this.form = this.fb.group({
       usuario: ["alejandra.1701914799@ucaldas.edu.co", [Validators.required, Validators.email, Validators.minLength(GeneralData.EMAIL_MIN_LENGHT)]],
-      contrasena: ["i57WxSnMkr", [Validators.required, Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT)]]
+      contrasena: ["1111111111", [Validators.required, Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT)]]
     });
   }
 
@@ -44,6 +44,8 @@ export class LoginComponent implements OnInit {
       let modelo = new ModeloCredencialesUsuario();
       modelo.usuario = this.GetForm['usuario'].value;
       modelo.contrasena = MD5(this.GetForm['contrasena'].value).toString();
+      console.log(modelo);
+
       this.servicioSeguridad.Login(modelo).subscribe({
         next: (data: SessionData) => {
           if (data.usuario == null) {

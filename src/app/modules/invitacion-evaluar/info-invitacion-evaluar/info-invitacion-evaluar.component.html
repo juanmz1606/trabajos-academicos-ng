@@ -51,13 +51,18 @@
                 {{record.observaciones}}
             </td>
             <td>
-                <a routerLink="/invitacion-evaluar/editar-invitacion-evaluar/{{record.id}}" class="btn btn-warning orange">Editar</a>
-                &nbsp;<a routerLink="/invitacion-evaluar/eliminar-invitacion-evaluar/{{record.id}}" class="btn btn-warning red">Eliminar</a>
+                <ul>
+                    <li><a routerLink="/invitacion-evaluar/editar-invitacion-evaluar/{{record.id}}" class="btn btn-warning orange">Editar</a></li>
+                    <br>
+                    <li><a routerLink="/invitacion-evaluar/eliminar-invitacion-evaluar/{{record.id}}" class="btn btn-warning red">Eliminar</a></li>
+                </ul>
             </td>
         </tr>
     </tbody>
 </table>
 
 <br>
-<a routerLink="/invitacion-evaluar/listar-invitacion-evaluar/{{solicitud.id}}" class="btn btn-success">Volver</a>
+<a routerLink="/invitacion-evaluar/listar-invitacion-evaluar/{{solicitud.id}}" class="btn btn-warning red">Volver</a>
+&nbsp;<a routerLink="/recordatorio/crear-recordatorio/{{record.id}}" class="btn btn-success">Enviar recordatorio</a>
+&nbsp;<a *ngIf="record.estadoInvitacion == 'Aceptado'" routerLink="/parametros/listar-resultado-evaluacion/{{record.id}}" class="btn btn-success">Resultado de evaluación</a>
 <p></p>

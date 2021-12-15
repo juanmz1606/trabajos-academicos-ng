@@ -31,8 +31,8 @@ export class InvitacionEvaluarService {
     return this.http.get<InvitacionEvaluarModel[]>(`${this.url}/solicitudes/${id}/invitaciones-evaluar${this.filter}`);
   }
 
-  SaveRecord(data: InvitacionEvaluarModel): Observable<InvitacionEvaluarModel> {
-    return this.http.post<InvitacionEvaluarModel>
+  SaveRecord(data: InvitacionEvaluarModel): Observable<Boolean> {
+    return this.http.post<Boolean>
       (`${this.url}/invitaciones-evaluar`,
         {
           fechaInvitacion: data.fechaInvitacion,

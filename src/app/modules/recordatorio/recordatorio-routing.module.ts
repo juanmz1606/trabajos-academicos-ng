@@ -8,7 +8,7 @@ import { ListarRecordatorioComponent } from './listar-recordatorio/listar-record
 
 const routes: Routes = [
   {
-    path: "crear-recordatorio",
+    path: "crear-recordatorio/:id",
     component: CrearRecordatorioComponent,
     canActivate: [AuthenticatedGuard]
   },

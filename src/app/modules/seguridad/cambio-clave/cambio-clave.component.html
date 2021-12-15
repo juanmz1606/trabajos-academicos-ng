@@ -1,1 +1,41 @@
-<p>cambio-clave works!</p>
+<div class="section"></div>
+<main>
+    <div class="container">
+        <div class="z-depth-1 grey lighten-4 row"
+            style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+            <form class="col s12" [formGroup]="form">
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input formControlName="contrasena" class='validate' type='password' name='contrasena'
+                            id='contrasena' />
+                        <label for='contrasena'>Ingrese su clave actual</label>
+                        <div *ngIf="GetForm['contrasena'].errors && (GetForm['contrasena'].dirty || GetForm['contrasena'].touched)"
+                            class="error-message">
+                            <label>Por favor ingrese una contraseña válida</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input formControlName="nuevaContrasena" class='validate' type='password' name='nuevaContrasena'
+                            id='nuevaContrasena' />
+                        <label for='nuevaContrasena'>Nueva clave</label>
+                        <div *ngIf="GetForm['nuevaContrasena'].errors && (GetForm['nuevaContrasena'].dirty || GetForm['nuevaContrasena'].touched)"
+                            class="error-message">
+                            <label>Por favor ingrese una contraseña válida</label>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div class='row center'>
+                    <button [disabled]="GetForm['contrasena'].errors || GetForm['nuevaContrasena'].errors" type='button'
+                        (click)="CambiarClave()" name='btn_login' class='col s12 btn btn-large waves-effect'>Cambiar
+                        clave</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

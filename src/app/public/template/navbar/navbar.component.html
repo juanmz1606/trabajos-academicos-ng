@@ -5,11 +5,9 @@
     <ul class="right hide-on-med-and-down">
       <li *ngIf="session"><a class="dropdown-trigger" href="#!" data-target="dropdown2">Proponente<i class="material-icons right">arrow_drop_down</i></a></li>
       <li *ngIf="session"><a class="dropdown-trigger" href="#!" data-target="dropdown1">Solicitud<i class="material-icons right">arrow_drop_down</i></a></li>
-      <li *ngIf="session"><a routerLink="parametros/listar-jurado">Jurado</a></li>
-      <li *ngIf="session"><a routerLink="recordatorio/listar-recordatorio">Recordatorio</a></li>
-      <li *ngIf="session"><a routerLink="parametros/listar-resultado-evaluacion">Resultado Evaluación</a></li>
-      <li *ngIf="session"><a routerLink="reportes/listar-reportes">Reportes</a></li>
-      <li *ngIf="session"><a routerLink="seguridad/listar-usuario">Usuarios</a></li>
+      <li *ngIf="session"><a routerLink="parametros/listar-jurado">Jurados</a></li>
+      <!-- <li *ngIf="session"><a routerLink="#">Reportes</a></li> -->
+      <li *ngIf="session"><a class="dropdown-trigger" href="#!" data-target="dropdown3">Administrador<i class="material-icons right">arrow_drop_down</i></a></li>
       <li *ngIf="!session"><a routerLink="seguridad/login">Login</a></li>
       <li *ngIf="session"><a routerLink="seguridad/cambiar-clave">Cambiar clave</a></li>
       <li *ngIf="session"><a routerLink="seguridad/logout">Logout</a></li>
@@ -27,7 +25,10 @@
       <li><a routerLink="parametros/listar-departamento">Departamento</a></li>
       <li><a routerLink="parametros/listar-facultad">Facultad</a></li>
       <li><a routerLink="parametros/listar-tipo-vinculacion">Tipo de vinculación</a></li>
-      
+    </ul>
+    <ul id="dropdown3" class="dropdown-content">
+      <li><a routerLink="seguridad/listar-usuario">Administrar usuarios</a></li>
+      <li><a routerLink="seguridad/listar-rol">Administrar Roles</a></li>
     </ul>
   </div>
 </nav>
@@ -39,7 +40,7 @@
   <li *ngIf="session"><a routerLink="parametros/listar-departamento">Departamento</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-facultad">Facultad</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-modalidad">Modalidad</a></li>
-  <li *ngIf="session"><a routerLink="parametros/listar-jurado">Jurado</a></li>
+  <li *ngIf="session"><a routerLink="parametros/listar-jurado">Jurados</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-comite">Comité</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-tipo-vinculacion">Tipo de vinculación</a></li>
   <li *ngIf="session"><a routerLink="parametros/listar-estado-solicitud">Estado de solicitud</a></li>
@@ -48,6 +49,7 @@
   <li *ngIf="session"><a routerLink="parametros/listar-resultado-evaluacion">Resultado Evaluación</a></li>
   <li *ngIf="session"><a routerLink="solicitud/listar-solicitudes">Solicitud</a></li>
   <li *ngIf="session"><a routerLink="proponente/listar-proponente">Proponente</a></li>
-  <li *ngIf="session"><a routerLink="reportes/listar-reportes">Reportes</a></li>
-  <li *ngIf="session"><a routerLink="seguridad/listar-usuario">Usuarios</a></li>
+  <!-- <li *ngIf="session"><a routerLink="reportes/listar-reportes">Reportes</a></li> -->
+  <li><a routerLink="seguridad/listar-usuario">Administrar usuarios</a></li>
+  <li><a routerLink="seguridad/listar-rol">Administrar Roles</a></li>
 </ul>

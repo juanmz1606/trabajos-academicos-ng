@@ -1,1 +1,25 @@
-<p>editar-invitacion-evaluar works!</p>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <input type="hidden" formControlName="id">
+        <div class="row">
+            <div class="input-field col s12">
+                <input formControlName="observaciones" id="observaciones" type="text">
+                <label for="observaciones" class="active">Observaciones</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/invitacion-evaluar/info-invitacion-evaluar/{{id}}" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="EditeRecord()" class="btn btn-success">
+                    Editar
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+

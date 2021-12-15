@@ -219,7 +219,7 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "listar-resultado-evaluacion",
+    path: "listar-resultado-evaluacion/:id",
     component: ListarResultadoEvaluacionComponent,
     canActivate: [AuthenticatedGuard]
   },{

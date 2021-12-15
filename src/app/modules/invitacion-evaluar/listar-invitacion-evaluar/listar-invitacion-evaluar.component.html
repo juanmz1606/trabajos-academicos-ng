@@ -9,9 +9,9 @@
             <div class="card-content">
                 <span class="card-title center-align">{{iE.tiene_jurado?.nombre}}</span>
                 <ul>
-                    <li><label>Estado: {{iE.estadoInvitacion}}</label></li>
+                    <li><span class="subtitulo">Estado: </span>{{iE.estadoInvitacion}}</li>
                 </ul>
-                <p class="descripcion"><label>Observaciones</label><br>{{iE.observaciones}}</p>
+                <p class="descripcion"><span class="subtitulo">Observaciones:</span><br>{{iE.observaciones}}</p>
             </div>
             <div class="card-action">
                 <p><a routerLink="/invitacion-evaluar/info-invitacion-evaluar/{{iE.id}}">Ver más info...</a></p>

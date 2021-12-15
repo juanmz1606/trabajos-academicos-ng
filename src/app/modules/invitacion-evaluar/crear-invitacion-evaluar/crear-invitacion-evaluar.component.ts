@@ -37,15 +37,17 @@ export class CrearInvitacionEvaluarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.date.getFullYear());
-    console.log(this.date.getMonth());
-    console.log(this.date.getDate());
-    
-    
-    
-    
     this.CreateForm();
     this.GetOptionsToSelects();
+  }
+
+  GetFecha(): string {
+    if (this.date.getMonth() != 12) {
+      return `${this.date.getDate()}/${this.date.getMonth() + 1}/${this.date.getFullYear()}`
+    }
+    else {
+      return `${this.date.getDate()}/01/${this.date.getFullYear()}`
+    }
   }
 
   GetOptionsToSelects() {
@@ -72,6 +74,7 @@ export class CrearInvitacionEvaluarComponent implements OnInit {
 
   CreateForm() {
     this.form = this.fb.group({
+      observaciones: ["", []],
       solicitud: ["", [Validators.required]],
       jurado: ["", [Validators.required]]
     });
@@ -81,11 +84,19 @@ export class CrearInvitacionEvaluarComponent implements OnInit {
     let model = new InvitacionEvaluarModel();
     model.id_solicitud = parseInt(this.form.controls['solicitud'].value);
     model.id_jurado = parseInt(this.form.controls['jurado'].value);
-    //model.fechaInvitacion = 
+    model.fechaInvitacion = this.GetFecha()
+    model.estadoInvitacion = "En espera";
+    model.observaciones = this.form.controls['observaciones'].value;
     this.service.SaveRecord(model).subscribe({
-      next: (data: InvitacionEvaluarModel) => {
-        OpenGeneralMessageModal(GeneralData.SAVED_MESSAGE);
-        this.router.navigate([`/invitacion-evaluar/listar-invitacion-evaluar/${this.id}`]);
+      next: (data: Boolean) => {
+        if (data) {
+          OpenGeneralMessageModal(GeneralData.SAVED_MESSAGE);
+          this.router.navigate([`/invitacion-evaluar/listar-invitacion-evaluar/${this.id}`]);
+        }
+        else {
+          OpenGeneralMessageModal(GeneralData.ERROR_SAVED_MESSAGE);
+          this.router.navigate([`/invitacion-evaluar/listar-invitacion-evaluar/${this.id}`]);
+        }
       },
       error: (err: any) => {
         OpenGeneralMessageModal(GeneralData.ERROR_SAVED_MESSAGE);

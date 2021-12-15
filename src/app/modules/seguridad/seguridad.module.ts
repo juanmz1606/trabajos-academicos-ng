@@ -12,6 +12,11 @@ import { EliminarUsuarioComponent } from './usuario/eliminar-usuario/eliminar-us
 import { ListarUsuarioComponent } from './usuario/listar-usuario/listar-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CrearRolComponent } from './rol/crear-rol/crear-rol.component';
+import { ListarRolComponent } from './rol/listar-rol/listar-rol.component';
+import { EditarRolComponent } from './rol/editar-rol/editar-rol.component';
+import { EliminarRolComponent } from './rol/eliminar-rol/eliminar-rol.component';
+import { CrearUsuarioJuradoComponent } from './usuarioJurado/crear-usuario-jurado/crear-usuario-jurado.component';
 
 
 @NgModule({
@@ -23,7 +28,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CrearUsuarioComponent,
     EditarUsuarioComponent,
     EliminarUsuarioComponent,
-    ListarUsuarioComponent
+    ListarUsuarioComponent,
+    CrearRolComponent,
+    ListarRolComponent,
+    EditarRolComponent,
+    EliminarRolComponent,
+    CrearUsuarioJuradoComponent
   ],
   imports: [
     CommonModule,

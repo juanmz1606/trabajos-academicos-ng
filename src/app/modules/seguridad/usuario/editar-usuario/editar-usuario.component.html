@@ -1,1 +1,54 @@
-<p>editar-usuario works!</p>
+<p></p>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <input type="hidden" formControlName="_id">
+        <div class="row">
+            <div class="input-field col s6">
+                <input formControlName="nombre" id="nombre" type="text">
+                <label for="nombre" class="active">Nombre</label>
+            </div>
+            <div class="input-field col s6">
+                <input formControlName="apellidos" id="apellidos" type="text">
+                <label for="apellidos" class="active">Apellidos</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <input formControlName="documento" id="documento" type="text">
+                <label for="documento" class="active">Documento</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="fechaNacimiento" id="fechaNacimiento" type="text">
+                <label for="fechaNacimiento" class="active">Fecha Nacimiento</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="correo" id="correo" type="text">
+                <label for="correo" class="active">Correo</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="celular" id="celular" type="text">
+                <label for="celular" class="active">Celular</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select multiple formControlName="roles" id="selRoles">
+                    <option *ngFor="let r of rolList" value="{{r._id}}">{{r.nombre}}</option>
+                </select>
+                <label>Roles</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/seguridad/listar-usuario" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="EditeRecord()" class="btn btn-success">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -145,7 +145,7 @@ export class CrearSolicitudComponent implements OnInit {
       estadoSolicitud: ["", [Validators.required]],
       lineaInvestigacion: ["", [Validators.required]],
       comites: ["", [Validators.required]],
-      invitacionesEvaluar: [[Validators.required]]
+      invitacionesEvaluar: ["",[Validators.required]]
     });
   }
 
