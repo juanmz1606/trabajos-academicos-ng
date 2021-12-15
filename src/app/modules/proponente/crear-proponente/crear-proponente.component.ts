@@ -39,7 +39,7 @@ export class CrearProponenteComponent implements OnInit {
 
   ngOnInit(): void {
     this.CreateForm();
-    this.CreateFormFile();
+    this.CreateFormFile(); 
     this.GetOptionsToSelects();
   }
 

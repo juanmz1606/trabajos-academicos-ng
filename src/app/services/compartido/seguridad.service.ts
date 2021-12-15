@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { CambioClaveModel } from 'src/app/models/cambio-clave.model';
+import { RecuperarClaveModel } from 'src/app/models/recuperar-clave.model';
 import { SessionData } from 'src/app/models/session-data.model';
 import { UsuarioModel } from 'src/app/models/usuario/usuario.model';
 import { GeneralData } from '../../config/general-data';
@@ -52,6 +53,12 @@ export class SeguridadService {
       id_usuario: modelo.id_usuario,
       clave_actual: modelo.clave_actual,
       nueva_clave: modelo.nueva_clave
+    });
+  }
+
+  RecuperarClave(modelo: RecuperarClaveModel): Observable<UsuarioModel>{
+    return this.http.post<RecuperarClaveModel>(`${this.url}/recuperar-clave`,{
+      correo: modelo.correo
     });
   }
 
